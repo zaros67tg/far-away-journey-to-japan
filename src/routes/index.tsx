@@ -10,13 +10,15 @@ import rocket from "@/assets/paper-rocket.png";
 import coder from "@/assets/coder-kimono.png";
 import bonfire from "@/assets/bonfire-friends.png";
 import pagoda from "@/assets/pagoda-waves.png";
-import tokyo from "@/assets/tokyo-poster.png";
 import unstop from "@/assets/unstop-logo.svg";
 import zuupLogo from "@/assets/zuup-logo.png";
 import cloud from "@/assets/cloud.png";
 import branch from "@/assets/branch.png";
+import wave from "@/assets/wave.png";
+import sun from "@/assets/sun.png";
+import crane from "@/assets/crane.png";
 import { SectionHeader } from "@/components/Section";
-import { GraphicCard } from "@/components/GraphicCard";
+import { JourneyMap } from "@/components/JourneyMap";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -46,19 +48,68 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
+/* ---------- Editorial "Why Participate" — asymmetric, no boxy tiles ---------- */
+
+const reasons = [
+  {
+    n: "01",
+    kanji: "創",
+    title: "Build real projects",
+    body: "Beyond tutorials. Real-world problems, working prototypes, and meaningful work that belongs in your portfolio.",
+    img: coder,
+    tilt: "-rotate-2",
+  },
+  {
+    n: "02",
+    kanji: "縁",
+    title: "Network with peers",
+    body: "Hundreds of like-minded young creators, developers, and designers from across India. Some of your best collaborators are out there.",
+    img: bonfire,
+    tilt: "rotate-3",
+  },
+  {
+    n: "03",
+    kanji: "翔",
+    title: "Compete in Japan",
+    body: "Top 5 teams fly to Japan with everything sponsored — flights, accommodation, meals. A global stage and a new culture, on us.",
+    img: pagoda,
+    tilt: "-rotate-1",
+  },
+  {
+    n: "04",
+    kanji: "龍",
+    title: "Internship offers",
+    body: "Top performers get fast-tracked into internships at partner companies — startups to established firms. The koi becomes a dragon.",
+    img: koi,
+    tilt: "rotate-2",
+  },
+  {
+    n: "05",
+    kanji: "師",
+    title: "Learn from mentors",
+    body: "Real industry mentors — developers, founders, product folks — guiding your project across all three rounds.",
+    img: sensei,
+    tilt: "-rotate-2",
+  },
+  {
+    n: "06",
+    kanji: "発",
+    title: "Launch early",
+    body: "Whether you're 15 or 25, FAR AWAY is a platform to prove yourself and get ahead of the curve.",
+    img: rocket,
+    tilt: "rotate-1",
+  },
+];
+
 function HomePage() {
   return (
     <div className="relative">
       {/* HERO */}
       <section className="relative overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-90"
-          style={{ backgroundImage: `url(${heroFuji})` }}
-          aria-hidden
-        />
+        <div className="absolute inset-0 bg-cover bg-center opacity-90" style={{ backgroundImage: `url(${heroFuji})` }} aria-hidden />
         <div className="absolute inset-0 bg-gradient-to-b from-paper/30 via-paper/0 to-paper" aria-hidden />
 
-        <div className="relative mx-auto max-w-7xl px-5 md:px-8 pt-16 md:pt-24 pb-32 md:pb-48">
+        <div className="relative mx-auto max-w-7xl px-5 md:px-8 pt-14 md:pt-20 pb-32 md:pb-48">
           <div className="grid md:grid-cols-12 gap-8 items-end">
             <div className="md:col-span-8">
               <div className="flex flex-wrap items-center gap-3 mb-7 animate-ink">
@@ -113,8 +164,8 @@ function HomePage() {
         <div className="relative -mt-16 md:-mt-24 mx-auto max-w-7xl px-5 md:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {[
-              { img: torii, num: "3", label: "Rounds of competition", alt: "Three torii gates representing three rounds" },
-              { img: planes, num: "Top 5", label: "Teams fly to Japan, fully sponsored", alt: "Five paper planes over Mount Fuji" },
+              { img: torii, num: "3", label: "Rounds of competition", alt: "Three torii gates" },
+              { img: planes, num: "Top 5", label: "Teams fly to Japan, fully sponsored", alt: "Paper planes over Mount Fuji" },
               { img: figures, num: "15–25", label: "Ages welcome", alt: "Two figures under cherry blossoms" },
               { img: lanterns, num: "FREE", label: "Early bird till 30 Apr", alt: "Japanese paper lanterns" },
             ].map((s) => (
@@ -144,7 +195,7 @@ function HomePage() {
           <div className="relative">
             <img src={cloud} alt="" aria-hidden width={500} height={300} className="absolute -top-8 -left-6 w-72 opacity-70" />
             <div className="relative">
-              <span className="ink-stamp">About the Hackathon</span>
+              <span className="ink-stamp">About</span>
               <h2 className="display-mega text-5xl md:text-6xl mt-4">
                 What is <br /><span className="text-sakura-deep">FAR AWAY?</span>
               </h2>
@@ -152,14 +203,10 @@ function HomePage() {
                 FAR AWAY is an international hackathon for youth aged 15–25, organized by{" "}
                 <strong>Zuup</strong>, a teen-led NPO by Zylon Labs.
               </p>
-              <p className="mt-4 text-base text-muted-foreground leading-relaxed">
-                It is not just a hackathon. It is a journey from your home screen, all the way to a
-                fully-sponsored grand finale in Japan for the top 5 teams. Flights, hotel, meals — covered.
-                You just have to build something worth flying for.
-              </p>
-              <p className="mt-4 text-base text-muted-foreground leading-relaxed">
-                Whether you are 15 and just wrote your first function, or 25 and shipping side projects —
-                there is a seat here for you.
+              <p className="mt-4 text-muted-foreground leading-relaxed">
+                It is not just a hackathon. It's a journey from your home screen to a fully-sponsored
+                grand finale in Japan for the top 5 teams. Flights, hotel, meals — covered. You just
+                have to build something worth flying for.
               </p>
               <Link to="/about" className="mt-6 inline-block text-sakura-deep font-semibold hover:underline">
                 Read the full story →
@@ -168,7 +215,7 @@ function HomePage() {
           </div>
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-br from-sakura-light to-sakura/30 rounded-3xl rotate-2" aria-hidden />
-            <img src={coder} alt="Young coder in a kimono with laptop, surrounded by cherry blossoms" loading="lazy" width={1024} height={1024} className="relative w-full max-w-md mx-auto" />
+            <img src={coder} alt="Young coder in a kimono with laptop" loading="lazy" width={1024} height={1024} className="relative w-full max-w-md mx-auto" />
             <p className="text-center text-xs italic text-muted-foreground mt-3">
               Real builders. Real chaos. Real results.
             </p>
@@ -176,78 +223,77 @@ function HomePage() {
         </div>
       </section>
 
-      {/* WHY JOIN */}
-      <section className="relative mx-auto max-w-7xl px-5 md:px-8 py-24">
-        <SectionHeader
-          eyebrow="Why Join"
-          title={<>Why Participate in <span className="text-sakura-deep">FAR AWAY?</span></>}
-          subtitle="Not just a competition. The kind of thing you'll still be talking about years later."
-        />
+      {/* WHY PARTICIPATE — editorial asymmetric layout */}
+      <section className="relative py-24 overflow-hidden">
+        <img src={branch} alt="" aria-hidden width={1024} height={512} className="pointer-events-none absolute -top-10 right-0 w-[500px] opacity-50 -rotate-12" />
+        <img src={crane} alt="" aria-hidden width={512} height={512} className="pointer-events-none absolute top-32 left-6 w-24 opacity-80 animate-float" />
 
-        <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <GraphicCard image={coder} imageAlt="Coder in kimono with laptop" number="01" title="Build Real Projects">
-            Go beyond tutorials. Work on real-world problems, build functioning prototypes, and add meaningful
-            work to your portfolio that actually means something.
-          </GraphicCard>
-          <GraphicCard image={bonfire} imageAlt="Young people around a bonfire under cherry blossoms" number="02" title="Network with Peers" accent="vermilion">
-            Meet hundreds of like-minded young creators, developers, and designers from across India.
-            Some of your best collaborators are out there.
-          </GraphicCard>
-          <GraphicCard image={pagoda} imageAlt="Japanese pagoda with Hokusai waves" number="03" title="Compete in Japan" accent="indigo">
-            Top 5 teams fly to Japan with all expenses sponsored — flights, accommodation, meals.
-            Compete on a global stage and experience a new culture.
-          </GraphicCard>
-          <GraphicCard image={koi} imageAlt="Koi fish transforming into a dragon" number="04" title="Internship Opportunities" accent="gold">
-            Top performers get fast-tracked for internship roles with partner companies, from startups
-            to established tech firms. The koi becomes a dragon.
-          </GraphicCard>
-          <GraphicCard image={sensei} imageAlt="Sensei teaching student under pine tree" number="05" title="Learn from Mentors">
-            Actual industry mentors — developers, founders, product folks — available throughout
-            the hackathon to guide your project.
-          </GraphicCard>
-          <GraphicCard image={rocket} imageAlt="Paper rocket launching over Mount Fuji" number="06" title="Launch Your Career Early" accent="vermilion">
-            Whether you are 15 or 25, FAR AWAY gives you the platform to prove yourself and get
-            ahead of the curve.
-          </GraphicCard>
+        <div className="relative mx-auto max-w-6xl px-5 md:px-8">
+          <SectionHeader
+            eyebrow="Why Participate"
+            title={<>Six reasons. One <em className="display-script not-italic text-sakura-deep">far away</em> goal.</>}
+            subtitle="Not just a competition. The kind of thing you'll still be talking about years later."
+          />
+
+          <ol className="mt-20 relative">
+            {/* Center vertical ink line for desktop */}
+            <span aria-hidden className="hidden md:block absolute left-1/2 top-2 bottom-2 w-px bg-gradient-to-b from-transparent via-vermilion/40 to-transparent" />
+
+            {reasons.map((r, i) => {
+              const left = i % 2 === 0;
+              return (
+                <li key={r.n} className="relative md:grid md:grid-cols-2 md:gap-16 mb-20 last:mb-0 group">
+                  {/* Marker dot on the line */}
+                  <span aria-hidden className="hidden md:block absolute left-1/2 -translate-x-1/2 top-10 h-3 w-3 rounded-full bg-vermilion ring-4 ring-paper z-10" />
+
+                  {/* Image side */}
+                  <div className={`relative ${left ? "md:order-1" : "md:order-2"} mb-6 md:mb-0`}>
+                    <div className={`relative inline-block ${r.tilt} transition-transform duration-700 group-hover:rotate-0`}>
+                      {/* Hand-stamped frame with kanji */}
+                      <span className="absolute -top-4 -left-4 z-20 grid place-items-center h-14 w-14 rounded-full bg-vermilion text-primary-foreground font-display text-2xl font-bold shadow-[var(--shadow-bloom)]">
+                        {r.kanji}
+                      </span>
+                      <div className="relative h-64 md:h-72 w-full md:w-[420px] bg-gradient-to-br from-sakura-light to-sakura/20 rounded-2xl overflow-hidden ring-1 ring-border">
+                        <img src={r.img} alt={r.title} loading="lazy" width={1024} height={1024} className="absolute inset-0 m-auto h-full w-full object-contain p-6" />
+                      </div>
+                      <div className="absolute -bottom-3 -right-3 ink-stamp bg-paper">{r.n}</div>
+                    </div>
+                  </div>
+
+                  {/* Text side */}
+                  <div className={`flex flex-col justify-center ${left ? "md:order-2 md:pl-8" : "md:order-1 md:pr-8 md:text-right md:items-end"}`}>
+                    <div className="text-xs uppercase tracking-[0.22em] text-vermilion font-semibold">Reason {r.n}</div>
+                    <h3 className="display-mega text-3xl md:text-5xl mt-2 leading-[1.05]">{r.title}</h3>
+                    <p className={`mt-4 text-base md:text-lg text-muted-foreground leading-relaxed max-w-md ${left ? "" : "md:ml-auto"}`}>
+                      {r.body}
+                    </p>
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
+
+          <p className="mt-8 text-center text-muted-foreground">
+            All of this starts with one registration.{" "}
+            <a href="https://unstop.com" target="_blank" rel="noopener noreferrer" className="text-sakura-deep font-semibold hover:underline">
+              Sign up free on Unstop →
+            </a>
+          </p>
         </div>
-
-        <p className="mt-10 text-center text-muted-foreground">
-          All of this starts with one registration.{" "}
-          <a href="https://unstop.com" target="_blank" rel="noopener noreferrer" className="text-sakura-deep font-semibold hover:underline">
-            Sign up free on Unstop →
-          </a>
-        </p>
       </section>
 
       <div className="torii-divider max-w-3xl mx-auto" />
 
-      {/* JOURNEY PEEK */}
+      {/* JOURNEY — dynamic map */}
       <section className="relative mx-auto max-w-7xl px-5 md:px-8 py-24">
         <SectionHeader
           eyebrow="The Journey"
-          title={<>Three Rounds. <br /><em className="display-script not-italic text-sakura-deep">One Wild Ride.</em></>}
-          subtitle="Online → Delhi → Japan. The path is clear. Are you on it?"
+          title={<>Three Rounds. <em className="display-script not-italic text-sakura-deep">One Wild Ride.</em></>}
+          subtitle="From your screen, across Delhi, all the way to Tokyo. Watch the plane fly the path."
         />
 
-        <div className="mt-14 grid md:grid-cols-3 gap-6">
-          {[
-            { img: coder, num: "01", title: "Online Round", where: "From Your Home", date: "First Week of June 2026", body: "Build and submit your project online. Open to participants across India. No commute needed." },
-            { img: figures, num: "02", title: "Delhi Round", where: "New Delhi, India", date: "Mid June 2026", body: "Top teams come to New Delhi for an in-person hackathon. Real energy, real competition." },
-            { img: tokyo, num: "03", title: "Grand Finale", where: "Tokyo, Japan", date: "Late June / July 2026", body: "Top 5 teams fly to Japan. Fully sponsored — flights, hotel, meals. Visa details TBC." },
-          ].map((r) => (
-            <article key={r.num} className="paper-card overflow-hidden group">
-              <div className="relative h-52 bg-gradient-to-br from-sakura-light to-sakura/20 overflow-hidden">
-                <img src={r.img} alt={r.title} loading="lazy" width={1024} height={1024} className="absolute inset-0 m-auto h-full w-full object-contain p-4 group-hover:scale-105 transition duration-700" />
-                <div className="absolute top-3 left-3 ink-stamp">{r.num}</div>
-              </div>
-              <div className="p-6">
-                <h3 className="font-display text-xl font-bold">{r.title}</h3>
-                <div className="text-xs uppercase tracking-[0.18em] text-vermilion mt-1">{r.where}</div>
-                <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{r.body}</p>
-                <div className="mt-4 text-xs font-semibold text-foreground/80">📅 {r.date}</div>
-              </div>
-            </article>
-          ))}
+        <div className="mt-12">
+          <JourneyMap />
         </div>
 
         <div className="mt-10 text-center">
@@ -297,6 +343,8 @@ function HomePage() {
       <section className="relative overflow-hidden mt-12">
         <img src={branch} alt="" aria-hidden width={1024} height={512} className="absolute -top-10 -left-20 w-[700px] opacity-60" />
         <img src={branch} alt="" aria-hidden width={1024} height={512} className="absolute -bottom-10 -right-20 w-[700px] opacity-60 rotate-180" />
+        <img src={wave} alt="" aria-hidden width={1024} height={512} className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1100px] opacity-20" />
+        <img src={sun} alt="" aria-hidden width={512} height={512} className="absolute top-8 right-8 w-32 opacity-40" />
         <div className="relative mx-auto max-w-4xl px-5 md:px-8 py-24 text-center">
           <span className="ink-stamp">Ready to go</span>
           <h2 className="display-mega text-5xl md:text-7xl mt-4">
