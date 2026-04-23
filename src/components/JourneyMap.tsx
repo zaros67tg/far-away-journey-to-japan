@@ -119,20 +119,62 @@ export function JourneyMap() {
             </g>
           ))}
 
-          {/* Animated paper plane following the path */}
+          {/* Animated airplane following the path (top-down silhouette, nose pointing +X) */}
           <g>
-            <g transform="translate(-12 -12)">
+            <g transform="translate(0 0) scale(1.1)">
+              {/* Subtle shadow */}
+              <ellipse cx="0" cy="10" rx="14" ry="2" fill="oklch(0.22 0.025 280)" opacity="0.18" />
+              {/* Fuselage */}
               <path
-                d="M2,12 L22,2 L14,12 L22,22 Z"
-                fill="oklch(1 0 0)"
+                d="M -16,0 
+                   C -16,-2 -10,-3 -2,-3 
+                   L 14,-3 
+                   L 20,0 
+                   L 14,3 
+                   L -2,3 
+                   C -10,3 -16,2 -16,0 Z"
+                fill="oklch(0.99 0.005 60)"
                 stroke="oklch(0.22 0.025 280)"
-                strokeWidth="1.2"
+                strokeWidth="1.1"
                 strokeLinejoin="round"
               />
-              <path d="M14,12 L22,2" stroke="oklch(0.22 0.025 280)" strokeWidth="1" fill="none" />
+              {/* Main wings */}
+              <path
+                d="M -2,-2 L -10,-12 L -4,-12 L 6,-2 Z"
+                fill="oklch(0.95 0.01 60)"
+                stroke="oklch(0.22 0.025 280)"
+                strokeWidth="1"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M -2,2 L -10,12 L -4,12 L 6,2 Z"
+                fill="oklch(0.92 0.015 60)"
+                stroke="oklch(0.22 0.025 280)"
+                strokeWidth="1"
+                strokeLinejoin="round"
+              />
+              {/* Tail fins */}
+              <path
+                d="M -14,-1 L -18,-6 L -14,-6 L -11,-1 Z"
+                fill="oklch(0.95 0.01 60)"
+                stroke="oklch(0.22 0.025 280)"
+                strokeWidth="1"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M -14,1 L -18,6 L -14,6 L -11,1 Z"
+                fill="oklch(0.92 0.015 60)"
+                stroke="oklch(0.22 0.025 280)"
+                strokeWidth="1"
+                strokeLinejoin="round"
+              />
+              {/* Cockpit window */}
+              <path d="M 10,-1.5 L 16,0 L 10,1.5 Z" fill="oklch(0.36 0.085 265)" opacity="0.85" />
+              {/* Vermilion accent stripe */}
+              <path d="M -8,0 L 12,0" stroke="oklch(0.62 0.21 30)" strokeWidth="1" opacity="0.7" />
             </g>
             <animateMotion
-              dur="9s"
+              dur="10s"
               repeatCount="indefinite"
               rotate="auto"
               keyPoints="0;1"
