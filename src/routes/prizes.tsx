@@ -5,7 +5,7 @@ import bonfire from "@/assets/bonfire-friends.png";
 import sensei from "@/assets/sensei-student.png";
 import coder from "@/assets/coder-kimono.png";
 import rocket from "@/assets/paper-rocket.png";
-import unstop from "@/assets/unstop-logo.svg";
+import unstopWhite from "@/assets/unstop-logo-white.png";
 import { SectionHeader } from "@/components/Section";
 import { GraphicCard } from "@/components/GraphicCard";
 
@@ -78,7 +78,7 @@ function PrizesPage() {
             className="mt-6 inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-sakura-deep to-vermilion text-primary-foreground font-semibold shadow-[var(--shadow-bloom)] hover:scale-105 transition"
           >
             Register on
-            <img src={unstop} alt="Unstop" width={70} height={20} className="h-5 w-auto bg-white/95 px-1.5 py-0.5 rounded" />
+            <img src={unstopWhite} alt="Unstop" width={80} height={22} className="h-5 w-auto" />
             →
           </a>
         </div>

@@ -11,6 +11,7 @@ import coder from "@/assets/coder-kimono.png";
 import bonfire from "@/assets/bonfire-friends.png";
 import pagoda from "@/assets/pagoda-waves.png";
 import unstop from "@/assets/unstop-logo.svg";
+import unstopWhite from "@/assets/unstop-logo-white.png";
 import zuupLogo from "@/assets/zuup-logo.png";
 import cloud from "@/assets/cloud.png";
 import branch from "@/assets/branch.png";
@@ -138,7 +139,7 @@ function HomePage() {
                   className="group inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-gradient-to-r from-sakura-deep to-vermilion text-primary-foreground font-semibold text-base shadow-[var(--shadow-bloom)] hover:scale-105 transition"
                 >
                   Register Free on
-                  <img src={unstop} alt="Unstop" width={70} height={20} className="h-5 w-auto bg-white/95 px-1.5 py-0.5 rounded" />
+                  <img src={unstopWhite} alt="Unstop" width={80} height={22} className="h-5 w-auto" />
                   <span aria-hidden className="text-lg group-hover:translate-x-1 transition">→</span>
                 </a>
                 <Link
@@ -361,7 +362,7 @@ function HomePage() {
             className="mt-8 inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-sakura-deep to-vermilion text-primary-foreground font-bold text-lg shadow-[var(--shadow-bloom)] hover:scale-105 transition"
           >
             Register on Unstop
-            <img src={unstop} alt="" width={70} height={20} className="h-5 w-auto bg-white/95 px-1.5 py-0.5 rounded" />
+            <img src={unstopWhite} alt="" width={80} height={22} className="h-5 w-auto" />
             →
           </a>
         </div>
