@@ -52,4 +52,11 @@ if (fs.existsSync(generatedWrangler)) {
   console.log("post-build: removed dist/client/wrangler.json");
 }
 
+// --- 5. Remove .wrangler/deploy/config.json — it points to the deleted wrangler.json ---
+const deployConfig = path.join(".wrangler", "deploy", "config.json");
+if (fs.existsSync(deployConfig)) {
+  fs.unlinkSync(deployConfig);
+  console.log("post-build: removed .wrangler/deploy/config.json");
+}
+
 console.log("post-build: done ✓");
