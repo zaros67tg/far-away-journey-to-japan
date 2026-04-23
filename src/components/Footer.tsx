@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import zuupLogo from "@/assets/zuup-logo.png";
+import zuupLogo from "@/assets/zuup-logo.webp";
 import unstopLogo from "@/assets/unstop-logo.svg";
-import branch from "@/assets/branch.png";
+import branch from "@/assets/branch.webp";
 
 export function Footer() {
   return (

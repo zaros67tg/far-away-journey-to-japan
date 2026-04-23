@@ -1,5 +1,5 @@
-import branchImg from "@/assets/branch.png";
-import sunImg from "@/assets/sun.png";
+import branchImg from "@/assets/branch.webp";
+import sunImg from "@/assets/sun.webp";
 
 /**
  * Editorial dynamic journey map — SVG arc from India to Japan with an

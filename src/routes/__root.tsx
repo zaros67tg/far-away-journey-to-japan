@@ -6,7 +6,7 @@ import { SakuraPetals } from "@/components/SakuraPetals";
 import appCss from "../styles.css?url";
 
 const SITE_URL = "https://faraway.zuup.dev";
-const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
+const OG_IMAGE = `${SITE_URL}/og-image.webp`;
 
 const consoleScript = `
 (function(){

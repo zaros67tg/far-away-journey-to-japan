@@ -1,11 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import pagoda from "@/assets/pagoda-waves.png";
-import koi from "@/assets/koi-dragon.png";
-import bonfire from "@/assets/bonfire-friends.png";
-import sensei from "@/assets/sensei-student.png";
-import coder from "@/assets/coder-kimono.png";
-import rocket from "@/assets/paper-rocket.png";
-import unstopWhite from "@/assets/unstop-logo-white.png";
+import pagoda from "@/assets/pagoda-waves.webp";
+import koi from "@/assets/koi-dragon.webp";
+import bonfire from "@/assets/bonfire-friends.webp";
+import sensei from "@/assets/sensei-student.webp";
+import coder from "@/assets/coder-kimono.webp";
+import rocket from "@/assets/paper-rocket.webp";
+import unstopWhite from "@/assets/unstop-logo-white.webp";
 import { SectionHeader } from "@/components/Section";
 import { GraphicCard } from "@/components/GraphicCard";
 
@@ -24,7 +24,7 @@ export const Route = createFileRoute("/prizes")({
         content:
           "FAR AWAY 2026 prizes: a fully sponsored trip to Japan, internships, recognition, and a launchpad for your career.",
       },
-      { property: "og:image", content: "/og-prizes.jpg" },
+      { property: "og:image", content: "/og-prizes.webp" },
     ],
   }),
   component: PrizesPage,

@@ -1,8 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import coder from "@/assets/coder-kimono.png";
-import zuupLogo from "@/assets/zuup-logo.png";
-import branch from "@/assets/branch.png";
-import lanterns from "@/assets/lanterns.png";
+import coder from "@/assets/coder-kimono.webp";
+import zuupLogo from "@/assets/zuup-logo.webp";
+import branch from "@/assets/branch.webp";
+import lanterns from "@/assets/lanterns.webp";
 import { SectionHeader } from "@/components/Section";
 
 export const Route = createFileRoute("/about")({

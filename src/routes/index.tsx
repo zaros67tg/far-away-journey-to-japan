@@ -1,23 +1,23 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import heroFuji from "@/assets/hero-fuji.jpg";
-import torii from "@/assets/torii-three.png";
-import planes from "@/assets/paper-planes-fuji.png";
-import figures from "@/assets/sakura-figures.png";
-import lanterns from "@/assets/lanterns.png";
-import koi from "@/assets/koi-dragon.png";
-import sensei from "@/assets/sensei-student.png";
-import rocket from "@/assets/paper-rocket.png";
-import coder from "@/assets/coder-kimono.png";
-import bonfire from "@/assets/bonfire-friends.png";
-import pagoda from "@/assets/pagoda-waves.png";
+import heroFuji from "@/assets/hero-fuji.webp";
+import torii from "@/assets/torii-three.webp";
+import planes from "@/assets/paper-planes-fuji.webp";
+import figures from "@/assets/sakura-figures.webp";
+import lanterns from "@/assets/lanterns.webp";
+import koi from "@/assets/koi-dragon.webp";
+import sensei from "@/assets/sensei-student.webp";
+import rocket from "@/assets/paper-rocket.webp";
+import coder from "@/assets/coder-kimono.webp";
+import bonfire from "@/assets/bonfire-friends.webp";
+import pagoda from "@/assets/pagoda-waves.webp";
 import unstop from "@/assets/unstop-logo.svg";
-import unstopWhite from "@/assets/unstop-logo-white.png";
-import zuupLogo from "@/assets/zuup-logo.png";
-import cloud from "@/assets/cloud.png";
-import branch from "@/assets/branch.png";
-import wave from "@/assets/wave.png";
-import sun from "@/assets/sun.png";
-import crane from "@/assets/crane.png";
+import unstopWhite from "@/assets/unstop-logo-white.webp";
+import zuupLogo from "@/assets/zuup-logo.webp";
+import cloud from "@/assets/cloud.webp";
+import branch from "@/assets/branch.webp";
+import wave from "@/assets/wave.webp";
+import sun from "@/assets/sun.webp";
+import crane from "@/assets/crane.webp";
 import { SectionHeader } from "@/components/Section";
 import { JourneyMap } from "@/components/JourneyMap";
 
@@ -36,14 +36,14 @@ export const Route = createFileRoute("/")({
         content:
           "From your screen → Delhi → Japan. India's biggest youth hackathon for ages 15–25. Free registration via Unstop until 30 April 2026.",
       },
-      { property: "og:image", content: "/og-image.jpg" },
+      { property: "og:image", content: "/og-image.webp" },
       { name: "twitter:title", content: "FAR AWAY 2026 — Win a Trip to Japan" },
       {
         name: "twitter:description",
         content:
           "India's biggest youth hackathon for ages 15–25. Top 5 teams fly to Japan, fully sponsored.",
       },
-      { name: "twitter:image", content: "/og-image.jpg" },
+      { name: "twitter:image", content: "/og-image.webp" },
     ],
   }),
   component: HomePage,

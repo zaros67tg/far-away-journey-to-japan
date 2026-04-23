@@ -1,10 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import branch from "@/assets/branch.png";
-import lanterns from "@/assets/lanterns.png";
-import crane from "@/assets/crane.png";
-import sun from "@/assets/sun.png";
-import wave from "@/assets/wave.png";
+import branch from "@/assets/branch.webp";
+import lanterns from "@/assets/lanterns.webp";
+import crane from "@/assets/crane.webp";
+import sun from "@/assets/sun.webp";
+import wave from "@/assets/wave.webp";
 
 const faqs = [
   {

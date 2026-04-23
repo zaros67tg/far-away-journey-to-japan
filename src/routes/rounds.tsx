@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import coder from "@/assets/coder-kimono.png";
-import delhi from "@/assets/delhi-gate.png";
-import tokyo from "@/assets/tokyo-poster.png";
-import torii from "@/assets/torii-three.png";
-import unstopWhite from "@/assets/unstop-logo-white.png";
+import coder from "@/assets/coder-kimono.webp";
+import delhi from "@/assets/delhi-gate.webp";
+import tokyo from "@/assets/tokyo-poster.webp";
+import torii from "@/assets/torii-three.webp";
+import unstopWhite from "@/assets/unstop-logo-white.webp";
 import { SectionHeader } from "@/components/Section";
 
 export const Route = createFileRoute("/rounds")({
@@ -21,7 +21,7 @@ export const Route = createFileRoute("/rounds")({
         content:
           "Online → Delhi → Japan. See the full round structure for FAR AWAY 2026, India's biggest international youth hackathon.",
       },
-      { property: "og:image", content: "/og-rounds.jpg" },
+      { property: "og:image", content: "/og-rounds.webp" },
     ],
   }),
   component: RoundsPage,

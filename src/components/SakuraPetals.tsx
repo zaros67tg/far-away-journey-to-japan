@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import petal from "@/assets/petal.png";
+import petal from "@/assets/petal.webp";
 
 interface SakuraPetalsProps {
   count?: number;
