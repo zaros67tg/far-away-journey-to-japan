@@ -45,19 +45,14 @@ if (fs.existsSync(serverAssetsDir)) {
   console.log("post-build: merged server JS chunks → dist/client/assets/");
 }
 
-// --- 4. Replace generated wrangler.json with a minimal valid version ---
-// The generated one has many unknown fields that break Pages' parser.
-// We keep just the fields needed to enable nodejs_compat for the _worker.js.
+// --- 4. Delete dist/client/wrangler.json — root wrangler.toml handles compat flags ---
 const generatedWrangler = path.join(clientDir, "wrangler.json");
-const minimalWrangler = {
-  name: "tanstack-start-app",
-  compatibility_date: "2025-09-24",
-  compatibility_flags: ["nodejs_compat"],
-};
-fs.writeFileSync(generatedWrangler, JSON.stringify(minimalWrangler, null, 2));
-console.log("post-build: wrote minimal wrangler.json with nodejs_compat");
+if (fs.existsSync(generatedWrangler)) {
+  fs.unlinkSync(generatedWrangler);
+  console.log("post-build: removed dist/client/wrangler.json (root wrangler.toml handles config)");
+}
 
-// --- 5. Remove .wrangler/deploy/config.json — it points to the old wrangler.json ---
+// --- 5. Remove .wrangler/deploy/config.json — stale pointer from vite plugin ---
 const deployConfig = path.join(".wrangler", "deploy", "config.json");
 if (fs.existsSync(deployConfig)) {
   fs.unlinkSync(deployConfig);
