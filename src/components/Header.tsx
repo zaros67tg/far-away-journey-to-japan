@@ -38,7 +38,7 @@ export function Header() {
 
         <div className="flex items-center gap-2">
           <a
-            href="https://unstop.com"
+            href="https://unstop.com/p/far-away-zuup-1677472"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-sakura-deep to-vermilion text-primary-foreground font-semibold text-[12px] tracking-wide hover:scale-105 transition"

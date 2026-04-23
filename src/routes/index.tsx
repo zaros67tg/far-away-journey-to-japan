@@ -131,9 +131,16 @@ function HomePage() {
                 <em className="display-script text-sakura-deep">Your screen, Delhi, then Japan.</em>
               </p>
 
-              <div className="mt-8 flex flex-wrap items-center gap-4 animate-ink">
+              {/* Japan prize badge */}
+              <div className="mt-5 inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-vermilion/10 ring-1 ring-vermilion/40 animate-ink">
+                <span className="text-lg" aria-hidden>✈️</span>
+                <span className="font-display font-bold text-vermilion text-sm tracking-wide">Top 5 teams fly to Japan — FREE</span>
+                <span className="text-lg" aria-hidden>🇯🇵</span>
+              </div>
+
+              <div className="mt-6 flex flex-wrap items-center gap-4 animate-ink">
                 <a
-                  href="https://unstop.com"
+                  href="https://unstop.com/p/far-away-zuup-1677472"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-gradient-to-r from-sakura-deep to-vermilion text-primary-foreground font-semibold text-base shadow-[var(--shadow-bloom)] hover:scale-105 transition"
@@ -276,7 +283,7 @@ function HomePage() {
 
           <p className="mt-8 text-center text-muted-foreground">
             All of this starts with one registration.{" "}
-            <a href="https://unstop.com" target="_blank" rel="noopener noreferrer" className="text-sakura-deep font-semibold hover:underline">
+            <a href="https://unstop.com/p/far-away-zuup-1677472" target="_blank" rel="noopener noreferrer" className="text-sakura-deep font-semibold hover:underline">
               Sign up free on Unstop →
             </a>
           </p>
@@ -340,6 +347,45 @@ function HomePage() {
         </div>
       </section>
 
+      {/* FAQ PREVIEW */}
+      <section className="relative mx-auto max-w-7xl px-5 md:px-8 py-24">
+        <SectionHeader
+          eyebrow="Got Questions?"
+          title={<>FAR AWAY <em className="display-script not-italic text-sakura-deep">FAQ</em></>}
+          subtitle="Eligibility, travel, costs, mentors — eleven honest answers covering everything you need to know."
+        />
+
+        <div className="mt-12 grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+          {[
+            { kanji: "誰", q: "Who can participate?", a: "Anyone aged 15–25 currently residing in India. No coding experience required to register." },
+            { kanji: "¥",  q: "How much does it cost?", a: "Completely free until 30 April 2026 via our platform partner, Unstop." },
+            { kanji: "翔", q: "Are Japan expenses covered?", a: "Yes — flights, hotel, and meals for the top 5 teams are fully sponsored by FAR AWAY." },
+            { kanji: "組", q: "Solo or team?", a: "Register individually now, then form or join teams via the Unstop dashboard once it goes live." },
+          ].map((item) => (
+            <div key={item.q} className="paper-card p-5 flex items-start gap-4 hover:shadow-[var(--shadow-bloom)] transition">
+              <span className="flex-none grid place-items-center h-11 w-11 rounded-full bg-sakura-light text-sakura-deep font-display font-bold text-base">
+                {item.kanji}
+              </span>
+              <div>
+                <div className="font-display font-bold text-sm md:text-base leading-snug">{item.q}</div>
+                <div className="mt-1.5 text-sm text-muted-foreground leading-relaxed">{item.a}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-10 text-center">
+          <Link
+            to="/faq"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-sakura-deep to-vermilion text-primary-foreground font-semibold hover:scale-105 transition shadow-[var(--shadow-bloom)]"
+          >
+            View all FAQs →
+          </Link>
+        </div>
+      </section>
+
+      <div className="torii-divider max-w-3xl mx-auto" />
+
       {/* CTA */}
       <section className="relative overflow-hidden mt-12">
         <img src={branch} alt="" aria-hidden width={1024} height={512} className="absolute -top-10 -left-20 w-[700px] opacity-60" />
@@ -356,7 +402,7 @@ function HomePage() {
             Sponsors and Delhi travel support announced soon.
           </p>
           <a
-            href="https://unstop.com"
+            href="https://unstop.com/p/far-away-zuup-1677472"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-8 inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-sakura-deep to-vermilion text-primary-foreground font-bold text-lg shadow-[var(--shadow-bloom)] hover:scale-105 transition"
