@@ -24,7 +24,25 @@ export const Route = createFileRoute("/prizes")({
         content:
           "FAR AWAY 2026 prizes: a fully sponsored trip to Japan, internships, recognition, and a launchpad for your career.",
       },
-      { property: "og:image", content: "/og-prizes.webp" },
+      { property: "og:image", content: "https://faraway.zuup.dev/og-image.webp" },
+      { property: "og:url", content: "https://faraway.zuup.dev/prizes" },
+      { name: "twitter:title", content: "Prizes — Top 5 Fly to Japan, Fully Sponsored" },
+      { name: "twitter:description", content: "Trip to Japan, internships, recognition. Build something worth winning for." },
+      { name: "twitter:image", content: "https://faraway.zuup.dev/og-image.webp" },
+    ],
+    links: [{ rel: "canonical", href: "https://faraway.zuup.dev/prizes" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://faraway.zuup.dev/" },
+            { "@type": "ListItem", position: 2, name: "Prizes", item: "https://faraway.zuup.dev/prizes" },
+          ],
+        }),
+      },
     ],
   }),
   component: PrizesPage,

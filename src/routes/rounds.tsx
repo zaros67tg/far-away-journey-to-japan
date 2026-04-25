@@ -21,7 +21,40 @@ export const Route = createFileRoute("/rounds")({
         content:
           "Online → Delhi → Japan. See the full round structure for FAR AWAY 2026, India's biggest international youth hackathon.",
       },
-      { property: "og:image", content: "/og-rounds.webp" },
+      { property: "og:image", content: "https://faraway.zuup.dev/og-image.webp" },
+      { property: "og:url", content: "https://faraway.zuup.dev/rounds" },
+      { name: "twitter:title", content: "Three Rounds. One Wild Ride. — FAR AWAY 2026" },
+      { name: "twitter:description", content: "Online → Delhi → Japan. The full hackathon journey." },
+      { name: "twitter:image", content: "https://faraway.zuup.dev/og-image.webp" },
+    ],
+    links: [{ rel: "canonical", href: "https://faraway.zuup.dev/rounds" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Home", item: "https://faraway.zuup.dev/" },
+                { "@type": "ListItem", position: 2, name: "Rounds", item: "https://faraway.zuup.dev/rounds" },
+              ],
+            },
+            {
+              "@type": "ItemList",
+              name: "FAR AWAY 2026 Rounds",
+              itemListOrder: "https://schema.org/ItemListOrderAscending",
+              numberOfItems: 3,
+              itemListElement: [
+                { "@type": "ListItem", position: 1, name: "International Online Round (First Week of June 2026)" },
+                { "@type": "ListItem", position: 2, name: "Round 2 — New Delhi, India (Mid June 2026)" },
+                { "@type": "ListItem", position: 3, name: "Grand Finale — Tokyo, Japan (Late June / July 2026)" },
+              ],
+            },
+          ],
+        }),
+      },
     ],
   }),
   component: RoundsPage,

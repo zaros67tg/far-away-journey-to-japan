@@ -75,18 +75,35 @@ export const Route = createFileRoute("/faq")({
       },
       { property: "og:title", content: "FAQ — FAR AWAY 2026" },
       { property: "og:description", content: "Common questions about FAR AWAY 2026 answered." },
+      { property: "og:image", content: "https://faraway.zuup.dev/og-image.webp" },
+      { property: "og:url", content: "https://faraway.zuup.dev/faq" },
+      { name: "twitter:title", content: "FAQ — FAR AWAY 2026" },
+      { name: "twitter:description", content: "Common questions about FAR AWAY 2026 answered." },
+      { name: "twitter:image", content: "https://faraway.zuup.dev/og-image.webp" },
     ],
+    links: [{ rel: "canonical", href: "https://faraway.zuup.dev/faq" }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "FAQPage",
-          mainEntity: faqs.map((f) => ({
-            "@type": "Question",
-            name: f.q,
-            acceptedAnswer: { "@type": "Answer", text: f.a },
-          })),
+          "@graph": [
+            {
+              "@type": "FAQPage",
+              mainEntity: faqs.map((f) => ({
+                "@type": "Question",
+                name: f.q,
+                acceptedAnswer: { "@type": "Answer", text: f.a },
+              })),
+            },
+            {
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Home", item: "https://faraway.zuup.dev/" },
+                { "@type": "ListItem", position: 2, name: "FAQ", item: "https://faraway.zuup.dev/faq" },
+              ],
+            },
+          ],
         }),
       },
     ],

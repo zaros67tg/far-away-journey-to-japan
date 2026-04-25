@@ -1,4 +1,28 @@
+# FAR AWAY 2026 — Hackathon by Zuup
+# Crawl freely, we have nothing to hide.
+
 User-agent: *
 Allow: /
+Disallow: /api/
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Block AI scrapers that ignore copyright
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
 
 Sitemap: https://faraway.zuup.dev/sitemap.xml
+Host: https://faraway.zuup.dev
