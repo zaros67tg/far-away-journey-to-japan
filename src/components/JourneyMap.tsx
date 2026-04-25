@@ -3,8 +3,8 @@ import sunImg from "@/assets/sun.webp";
 
 /**
  * Editorial dynamic journey map — SVG arc from India to Japan with an
- * origami paper plane that flies along the path on loop, and three
- * stop markers (Online, Delhi, Tokyo) anchored to real points.
+ * airliner that flies along the path on loop, and three stop markers
+ * (Online, Delhi, Tokyo) anchored to real points.
  */
 export function JourneyMap() {
   return (
@@ -40,12 +40,16 @@ export function JourneyMap() {
               <stop offset="0%" stopColor="oklch(0.65 0.155 15)" />
               <stop offset="100%" stopColor="oklch(0.62 0.21 30)" />
             </linearGradient>
+            <linearGradient id="trailGrad" x1="0" x2="1" y1="0" y2="0">
+              <stop offset="0%" stopColor="oklch(0.62 0.21 30)" stopOpacity="0" />
+              <stop offset="100%" stopColor="oklch(0.62 0.21 30)" stopOpacity="0.55" />
+            </linearGradient>
             <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
               <feGaussianBlur stdDeviation="0.6" />
             </filter>
           </defs>
 
-          {/* dotted reference grid (subtle) */}
+          {/* dotted reference grid */}
           <g opacity="0.15" stroke="oklch(0.45 0.03 280)" strokeWidth="0.5">
             {Array.from({ length: 11 }).map((_, i) => (
               <line key={`v${i}`} x1={i * 100} y1={0} x2={i * 100} y2={420} />
@@ -84,7 +88,9 @@ export function JourneyMap() {
             strokeLinecap="round"
             fill="none"
             filter="url(#soft)"
-          />
+          >
+            <animate attributeName="stroke-dashoffset" values="0;-90" dur="6s" repeatCount="indefinite" />
+          </path>
 
           {/* Stop markers */}
           {[
@@ -93,7 +99,9 @@ export function JourneyMap() {
             { cx: 880, cy: 170, label: "03 · Tokyo",  sub: "Grand finale",    anchor: "end", lx: 880, ly: 205 },
           ].map((m) => (
             <g key={m.label}>
-              <circle cx={m.cx} cy={m.cy} r="14" fill="oklch(1 0 0)" stroke="oklch(0.62 0.21 30)" strokeWidth="2" />
+              <circle cx={m.cx} cy={m.cy} r="14" fill="oklch(1 0 0)" stroke="oklch(0.62 0.21 30)" strokeWidth="2">
+                <animate attributeName="r" values="14;17;14" dur="2.4s" repeatCount="indefinite" />
+              </circle>
               <circle cx={m.cx} cy={m.cy} r="5" fill="oklch(0.62 0.21 30)" />
               <text
                 x={m.lx}
@@ -119,62 +127,41 @@ export function JourneyMap() {
             </g>
           ))}
 
-          {/* Animated airplane following the path (top-down silhouette, nose pointing +X) */}
+          {/* Animated airliner — top-down view, nose pointing +X (rotate="auto" aligns to path) */}
           <g>
-            <g transform="translate(0 0) scale(1.1)">
-              {/* Subtle shadow */}
-              <ellipse cx="0" cy="10" rx="14" ry="2" fill="oklch(0.22 0.025 280)" opacity="0.18" />
-              {/* Fuselage */}
+            <g>
+              {/* Drop shadow under the plane */}
+              <ellipse cx="2" cy="14" rx="22" ry="3" fill="oklch(0.22 0.025 280)" opacity="0.18" />
+
+              {/* Main wings (swept back) */}
+              <path d="M 2,-3 L -18,-22 L -10,-22 L 8,-4 Z" fill="oklch(0.93 0.015 60)" stroke="oklch(0.22 0.025 280)" strokeWidth="1.1" strokeLinejoin="round" />
+              <path d="M 2,3 L -18,22 L -10,22 L 8,4 Z" fill="oklch(0.88 0.02 60)" stroke="oklch(0.22 0.025 280)" strokeWidth="1.1" strokeLinejoin="round" />
+
+              {/* Tail horizontal stabilizers */}
+              <path d="M -20,-2 L -28,-9 L -22,-9 L -16,-2 Z" fill="oklch(0.93 0.015 60)" stroke="oklch(0.22 0.025 280)" strokeWidth="1" strokeLinejoin="round" />
+              <path d="M -20,2 L -28,9 L -22,9 L -16,2 Z" fill="oklch(0.88 0.02 60)" stroke="oklch(0.22 0.025 280)" strokeWidth="1" strokeLinejoin="round" />
+
+              {/* Fuselage — long capsule with pointed nose at +X */}
               <path
-                d="M -16,0 
-                   C -16,-2 -10,-3 -2,-3 
-                   L 14,-3 
-                   L 20,0 
-                   L 14,3 
-                   L -2,3 
-                   C -10,3 -16,2 -16,0 Z"
+                d="M -28,0 C -28,-3 -22,-4.5 -14,-4.5 L 12,-4.5 C 18,-4.5 22,-3 24,-1.5 L 28,0 L 24,1.5 C 22,3 18,4.5 12,4.5 L -14,4.5 C -22,4.5 -28,3 -28,0 Z"
                 fill="oklch(0.99 0.005 60)"
                 stroke="oklch(0.22 0.025 280)"
-                strokeWidth="1.1"
+                strokeWidth="1.3"
                 strokeLinejoin="round"
               />
-              {/* Main wings */}
-              <path
-                d="M -2,-2 L -10,-12 L -4,-12 L 6,-2 Z"
-                fill="oklch(0.95 0.01 60)"
-                stroke="oklch(0.22 0.025 280)"
-                strokeWidth="1"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M -2,2 L -10,12 L -4,12 L 6,2 Z"
-                fill="oklch(0.92 0.015 60)"
-                stroke="oklch(0.22 0.025 280)"
-                strokeWidth="1"
-                strokeLinejoin="round"
-              />
-              {/* Tail fins */}
-              <path
-                d="M -14,-1 L -18,-6 L -14,-6 L -11,-1 Z"
-                fill="oklch(0.95 0.01 60)"
-                stroke="oklch(0.22 0.025 280)"
-                strokeWidth="1"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M -14,1 L -18,6 L -14,6 L -11,1 Z"
-                fill="oklch(0.92 0.015 60)"
-                stroke="oklch(0.22 0.025 280)"
-                strokeWidth="1"
-                strokeLinejoin="round"
-              />
-              {/* Cockpit window */}
-              <path d="M 10,-1.5 L 16,0 L 10,1.5 Z" fill="oklch(0.36 0.085 265)" opacity="0.85" />
-              {/* Vermilion accent stripe */}
-              <path d="M -8,0 L 12,0" stroke="oklch(0.62 0.21 30)" strokeWidth="1" opacity="0.7" />
+
+              {/* Vermilion belly stripe */}
+              <path d="M -22,0 L 22,0" stroke="oklch(0.62 0.21 30)" strokeWidth="1.4" opacity="0.85" strokeLinecap="round" />
+
+              {/* Cockpit windows (front, near the nose at +X) */}
+              <path d="M 14,-2 L 22,-0.4 L 22,0.4 L 14,2 Z" fill="oklch(0.36 0.085 265)" opacity="0.9" />
+
+              {/* Engine pods under wings */}
+              <ellipse cx="-4" cy="-12" rx="3" ry="1.6" fill="oklch(0.55 0.04 280)" stroke="oklch(0.22 0.025 280)" strokeWidth="0.8" />
+              <ellipse cx="-4" cy="12" rx="3" ry="1.6" fill="oklch(0.55 0.04 280)" stroke="oklch(0.22 0.025 280)" strokeWidth="0.8" />
             </g>
             <animateMotion
-              dur="10s"
+              dur="11s"
               repeatCount="indefinite"
               rotate="auto"
               keyPoints="0;1"

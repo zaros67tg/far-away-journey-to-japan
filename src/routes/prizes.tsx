@@ -70,7 +70,7 @@ function PrizesPage() {
       <section className="relative mx-auto max-w-4xl px-5 md:px-8 py-16">
         <div className="paper-card p-8 md:p-12 text-center bg-gradient-to-br from-sakura-light via-paper to-sakura/15">
           <h2 className="display-mega text-3xl md:text-4xl">Ready to compete?</h2>
-          <p className="mt-3 text-muted-foreground">Free registration until 30 April 2026 — via our platform partner Unstop.</p>
+          <p className="mt-3 text-muted-foreground">Registration is <strong className="text-vermilion">always free</strong>, via our platform partner Unstop.</p>
           <a
             href="https://unstop.com"
             target="_blank"
