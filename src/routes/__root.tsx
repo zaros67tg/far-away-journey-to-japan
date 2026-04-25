@@ -46,8 +46,15 @@ export const Route = createRootRoute({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
       { name: "theme-color", content: "#f9d6dc" },
+      { name: "color-scheme", content: "light" },
+      { name: "format-detection", content: "telephone=no" },
+      { name: "application-name", content: "FAR AWAY 2026" },
+      { name: "apple-mobile-web-app-title", content: "FAR AWAY 2026" },
+      { name: "apple-mobile-web-app-capable", content: "yes" },
+      { name: "apple-mobile-web-app-status-bar-style", content: "default" },
+      { name: "mobile-web-app-capable", content: "yes" },
       { title: "FAR AWAY 2026 — India's International Youth Hackathon | Win a Trip to Japan" },
       {
         name: "description",
@@ -57,15 +64,24 @@ export const Route = createRootRoute({
       {
         name: "keywords",
         content:
-          "FAR AWAY hackathon, FAR AWAY 2026, Zuup, Zylon Labs, India hackathon, international hackathon, youth hackathon India, student hackathon, hackathon Japan, hackathon for teens, ages 15-25 hackathon, free hackathon India, Delhi hackathon, Tokyo hackathon, win trip to Japan, sponsored hackathon, Indian student coding competition, Unstop hackathon",
+          "FAR AWAY hackathon, FAR AWAY 2026, Zuup, Zuup empower, Zylon Labs, India hackathon, international hackathon, youth hackathon India, student hackathon, hackathon Japan, hackathon Tokyo, hackathon for teens, hackathon for college students, ages 15-25 hackathon, free hackathon India, Delhi hackathon, Tokyo hackathon, win trip to Japan, sponsored hackathon, fully sponsored hackathon, Indian student coding competition, Unstop hackathon, India to Japan hackathon, biggest hackathon India, summer hackathon 2026, hackathon June 2026, school hackathon, high school hackathon India",
       },
       { name: "author", content: "Zuup by Zylon Labs" },
-      { name: "robots", content: "index, follow, max-image-preview:large" },
-      { name: "googlebot", content: "index, follow" },
+      { name: "publisher", content: "Zuup" },
+      { name: "creator", content: "Zuup" },
+      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
+      { name: "googlebot", content: "index, follow, max-image-preview:large, max-snippet:-1" },
+      { name: "bingbot", content: "index, follow" },
+      { name: "rating", content: "general" },
+      { name: "distribution", content: "global" },
+      { name: "geo.region", content: "IN" },
+      { name: "geo.placename", content: "India" },
+      { name: "language", content: "en-IN" },
 
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "FAR AWAY 2026" },
       { property: "og:locale", content: "en_IN" },
+      { property: "og:locale:alternate", content: "ja_JP" },
 
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@zuup_empower" },
