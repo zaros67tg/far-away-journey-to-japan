@@ -107,7 +107,16 @@ function HomePage() {
     <div className="relative">
       {/* HERO */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center opacity-90" style={{ backgroundImage: `url(${heroFuji})` }} aria-hidden />
+        <img
+          src={heroFuji}
+          alt=""
+          aria-hidden
+          fetchPriority="high"
+          decoding="async"
+          width={1600}
+          height={900}
+          className="absolute inset-0 w-full h-full object-cover opacity-90"
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-paper/30 via-paper/0 to-paper" aria-hidden />
 
         <div className="relative mx-auto max-w-7xl px-5 md:px-8 pt-14 md:pt-20 pb-32 md:pb-48">

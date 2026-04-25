@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { SakuraPetals } from "@/components/SakuraPetals";
 
 import appCss from "../styles.css?url";
+import heroFujiUrl from "@/assets/hero-fuji.webp?url";
 
 const SITE_URL = "https://faraway.zuup.dev";
 const OG_IMAGE = `${SITE_URL}/og-image.webp`;
@@ -76,6 +77,8 @@ export const Route = createRootRoute({
       { rel: "canonical", href: SITE_URL },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
+      // Preload hero — first paint image, big LCP win
+      { rel: "preload", as: "image", href: heroFujiUrl, fetchpriority: "high" } as never,
     ],
     scripts: [
       {
