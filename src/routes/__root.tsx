@@ -51,7 +51,7 @@ export const Route = createRootRoute({
       {
         name: "description",
         content:
-          "FAR AWAY is India's biggest international youth hackathon for ages 15–25. Top 5 teams fly to Japan — flights, hotel and meals fully sponsored. Free registration until 30 April 2026. Organized by Zuup.",
+          "FAR AWAY is India's biggest international youth hackathon for ages 15–25. Top 5 teams fly to Japan — flights, hotel and meals fully sponsored. Registration is always free. Organized by Zuup.",
       },
       {
         name: "keywords",
@@ -107,7 +107,7 @@ export const Route = createRootRoute({
             price: "0",
             priceCurrency: "INR",
             availability: "https://schema.org/InStock",
-            validThrough: "2026-04-30",
+            validThrough: "2026-07-31",
             url: "https://unstop.com",
           },
           audience: {

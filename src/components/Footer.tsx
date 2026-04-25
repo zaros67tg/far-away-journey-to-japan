@@ -28,7 +28,7 @@ export function Footer() {
             Organized by <strong>Zuup</strong>, a teen-led NPO by Zylon Labs.
           </p>
           <div className="mt-5 flex flex-wrap items-center gap-3">
-            <span className="ink-stamp">Free till 30 Apr 2026</span>
+            <span className="ink-stamp">Always Free · 完全無料</span>
             <a
               href="https://instagram.com/zuup.empower"
               target="_blank"

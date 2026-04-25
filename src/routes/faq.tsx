@@ -15,7 +15,7 @@ const faqs = [
   {
     kanji: "¥",
     q: "How much does registration cost for FAR AWAY?",
-    a: "Registration is completely free until 30 April 2026 via our platform partner, Unstop. After that date, pricing details (if any) will be announced.",
+    a: "Registration is completely free — forever. No hidden fees, no premium tier, no late charges. We register you via our platform partner, Unstop.",
   },
   {
     kanji: "車",

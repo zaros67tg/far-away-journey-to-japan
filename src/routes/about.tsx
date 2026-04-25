@@ -92,7 +92,7 @@ function AboutPage() {
         <img src={lanterns} alt="" aria-hidden width={500} height={500} className="absolute -bottom-10 -left-12 w-72 opacity-70" />
         <div className="relative mx-auto max-w-3xl px-5 md:px-8 py-24 text-center">
           <h2 className="display-mega text-4xl md:text-5xl">Sound like your kind of thing?</h2>
-          <p className="mt-4 text-muted-foreground">Registration is free until 30 April 2026.</p>
+          <p className="mt-4 text-muted-foreground">Registration is <strong className="text-vermilion">always free</strong>. No fees, no catch.</p>
           <Link to="/rounds" className="mt-6 inline-flex items-center gap-2 px-5 py-3 rounded-full bg-paper ring-1 ring-border font-medium hover:bg-sakura-light transition">
             See the rounds →
           </Link>
