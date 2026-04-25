@@ -28,13 +28,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Build, compete, fly. FAR AWAY 2026 is India's biggest international hackathon for ages 15–25. Top 5 teams fly to Japan — flights, hotel & meals fully sponsored. Free registration via Unstop until 30 April 2026.",
+          "Build, compete, fly. FAR AWAY 2026 is India's biggest international hackathon for ages 15–25. Top 5 teams fly to Japan — flights, hotel & meals fully sponsored. Registration is always free via Unstop.",
       },
       { property: "og:title", content: "FAR AWAY 2026 — Win a Fully Sponsored Trip to Japan" },
       {
         property: "og:description",
         content:
-          "From your screen → Delhi → Japan. India's biggest youth hackathon for ages 15–25. Free registration via Unstop until 30 April 2026.",
+          "From your screen → Delhi → Japan. India's biggest youth hackathon for ages 15–25. Always free registration via Unstop.",
       },
       { property: "og:image", content: "/og-image.webp" },
       { name: "twitter:title", content: "FAR AWAY 2026 — Win a Trip to Japan" },
@@ -159,9 +159,11 @@ function HomePage() {
             </div>
 
             <div className="md:col-span-4 hidden md:flex flex-col items-end gap-3 text-right">
-              <div className="paper-card px-4 py-3 bg-paper/85 backdrop-blur">
-                <div className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Free until</div>
-                <div className="font-display text-2xl font-bold text-sakura-deep">30 Apr 2026</div>
+              <div className="paper-card px-5 py-4 bg-paper/85 backdrop-blur relative overflow-hidden">
+                <span aria-hidden className="absolute -top-2 -right-2 h-10 w-10 rounded-full bg-vermilion/15 animate-ping" />
+                <div className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Registration</div>
+                <div className="font-display text-2xl font-bold text-shimmer">Always Free</div>
+                <div className="text-[10px] uppercase tracking-[0.22em] text-vermilion mt-0.5">完全無料 · No catch</div>
               </div>
               <img src={planes} alt="" aria-hidden width={400} height={400} className="w-72 animate-float" />
             </div>
@@ -175,7 +177,7 @@ function HomePage() {
               { img: torii, num: "3", label: "Rounds of competition", alt: "Three torii gates" },
               { img: planes, num: "Top 5", label: "Teams fly to Japan, fully sponsored", alt: "Paper planes over Mount Fuji" },
               { img: figures, num: "15–25", label: "Ages welcome", alt: "Two figures under cherry blossoms" },
-              { img: lanterns, num: "FREE", label: "Early bird till 30 Apr", alt: "Japanese paper lanterns" },
+              { img: lanterns, num: "FREE", label: "Forever. No fees, ever.", alt: "Japanese paper lanterns" },
             ].map((s) => (
               <div key={s.label} className="paper-card p-5 bg-card/95 backdrop-blur relative overflow-hidden">
                 <img src={s.img} alt={s.alt} loading="lazy" width={400} height={400} className="absolute -right-4 -top-4 w-28 h-28 object-contain opacity-90" />
@@ -193,7 +195,7 @@ function HomePage() {
           FAR AWAY is India's biggest international youth hackathon for 2026, organized by{" "}
           <strong className="not-italic text-sakura-deep">Zuup</strong> (a Zylon Labs initiative).
           Open to students and young creators aged 15–25. The top 5 teams win a fully sponsored trip to Japan.
-          Registration is <strong className="not-italic text-vermilion">free</strong> until 30 April 2026.
+          Registration is <strong className="not-italic text-vermilion">always free</strong> — no hidden fees, ever.
         </p>
       </section>
 
@@ -358,7 +360,7 @@ function HomePage() {
         <div className="mt-12 grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
           {[
             { kanji: "誰", q: "Who can participate?", a: "Anyone aged 15–25 currently residing in India. No coding experience required to register." },
-            { kanji: "¥",  q: "How much does it cost?", a: "Completely free until 30 April 2026 via our platform partner, Unstop." },
+            { kanji: "¥",  q: "How much does it cost?", a: "Completely free — forever. No fees, no premium tier. Register on our platform partner, Unstop." },
             { kanji: "翔", q: "Are Japan expenses covered?", a: "Yes — flights, hotel, and meals for the top 5 teams are fully sponsored by FAR AWAY." },
             { kanji: "組", q: "Solo or team?", a: "Register individually now, then form or join teams via the Unstop dashboard once it goes live." },
           ].map((item) => (
@@ -398,7 +400,7 @@ function HomePage() {
             FAR <span className="text-shimmer">AWAY?</span>
           </h2>
           <p className="mt-5 text-lg text-muted-foreground max-w-xl mx-auto">
-            Free registration is open until 30 April 2026 on our platform partner Unstop.
+            Registration is <strong className="text-vermilion">always free</strong> on our platform partner Unstop.
             Sponsors and Delhi travel support announced soon.
           </p>
           <a
