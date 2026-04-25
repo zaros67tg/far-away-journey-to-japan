@@ -36,15 +36,21 @@ export const Route = createFileRoute("/")({
         content:
           "From your screen → Delhi → Japan. India's biggest youth hackathon for ages 15–25. Always free registration via Unstop.",
       },
-      { property: "og:image", content: "/og-image.webp" },
+      { property: "og:image", content: "https://faraway.zuup.dev/og-image.webp" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "FAR AWAY 2026 — Mount Fuji, cherry blossoms and the journey from India to Japan" },
+      { property: "og:url", content: "https://faraway.zuup.dev/" },
       { name: "twitter:title", content: "FAR AWAY 2026 — Win a Trip to Japan" },
       {
         name: "twitter:description",
         content:
           "India's biggest youth hackathon for ages 15–25. Top 5 teams fly to Japan, fully sponsored.",
       },
-      { name: "twitter:image", content: "/og-image.webp" },
+      { name: "twitter:image", content: "https://faraway.zuup.dev/og-image.webp" },
+      { name: "twitter:image:alt", content: "FAR AWAY 2026 hackathon hero — Mount Fuji and cherry blossoms" },
     ],
+    links: [{ rel: "canonical", href: "https://faraway.zuup.dev/" }],
   }),
   component: HomePage,
 });
