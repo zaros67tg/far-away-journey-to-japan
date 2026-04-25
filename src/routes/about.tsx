@@ -20,6 +20,25 @@ export const Route = createFileRoute("/about")({
         content:
           "From a teen-led NPO to an international hackathon. Meet Zuup, the team behind FAR AWAY 2026.",
       },
+      { property: "og:image", content: "https://faraway.zuup.dev/og-image.webp" },
+      { property: "og:url", content: "https://faraway.zuup.dev/about" },
+      { name: "twitter:title", content: "About FAR AWAY 2026 — Built by Teens, for Teens" },
+      { name: "twitter:description", content: "Meet Zuup, the team behind India's biggest international youth hackathon." },
+      { name: "twitter:image", content: "https://faraway.zuup.dev/og-image.webp" },
+    ],
+    links: [{ rel: "canonical", href: "https://faraway.zuup.dev/about" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://faraway.zuup.dev/" },
+            { "@type": "ListItem", position: 2, name: "About", item: "https://faraway.zuup.dev/about" },
+          ],
+        }),
+      },
     ],
   }),
   component: AboutPage,
