@@ -14,7 +14,8 @@ import {
   MapPin, 
   CheckCircle2,
   TrendingUp,
-  Users
+  Users,
+  Minus
 } from "lucide-react";
 
 export const Route = createFileRoute("/sponsors")({
@@ -32,10 +33,44 @@ export const Route = createFileRoute("/sponsors")({
 
 function SponsorsPage() {
   return (
-    <div className="relative">
+    <div className="relative print:bg-white print:text-black">
+      <style>{`
+        @media print {
+          @page {
+            size: A4;
+            margin: 0;
+          }
+          body {
+            print-color-adjust: exact;
+            -webkit-print-color-adjust: exact;
+            background: white !important;
+          }
+          section {
+            padding-left: 2cm !important;
+            padding-right: 2cm !important;
+            padding-top: 1.5cm !important;
+            padding-bottom: 1.5cm !important;
+            max-width: 100% !important;
+          }
+          .paper-card {
+            border: 1px solid #e2e8f0;
+            box-shadow: none !important;
+            page-break-inside: avoid;
+            break-inside: avoid;
+          }
+          tr {
+            page-break-inside: avoid;
+            break-inside: avoid;
+          }
+          .torii-divider {
+            display: none;
+          }
+        }
+      `}</style>
+
       {/* BACKGROUND DECORATIONS */}
-      <img src={branch} alt="" aria-hidden width={1024} height={512} className="pointer-events-none absolute top-0 right-0 w-[500px] opacity-40 -rotate-12" />
-      <img src={branch} alt="" aria-hidden width={1024} height={512} className="pointer-events-none absolute top-1/3 left-0 w-[400px] opacity-30 rotate-180 -scale-x-100" />
+      <img src={branch} alt="" aria-hidden width={1024} height={512} className="print:hidden pointer-events-none absolute top-0 right-0 w-[500px] opacity-40 -rotate-12" />
+      <img src={branch} alt="" aria-hidden width={1024} height={512} className="print:hidden pointer-events-none absolute top-1/3 left-0 w-[400px] opacity-30 rotate-180 -scale-x-100" />
 
       {/* HERO SECTION */}
       <section className="relative mx-auto max-w-6xl px-5 md:px-8 pt-20 md:pt-32 pb-20">
@@ -155,6 +190,46 @@ function SponsorsPage() {
 
       <div className="torii-divider max-w-3xl mx-auto opacity-50 my-10" />
 
+      {/* WORKSHOPS */}
+      <section className="relative mx-auto max-w-6xl px-5 md:px-8 py-10 print:!pt-0">
+        <SectionHeader
+          eyebrow="Preparation"
+          title={<>Building <span className="text-sakura-deep">Before</span> The Build</>}
+          subtitle="We don't just expect greatness; we teach it. We are training everyone a month before the actual hackathon starts."
+        />
+
+        <div className="mt-12 grid md:grid-cols-2 gap-8 items-center">
+           <div>
+             <h3 className="font-display text-3xl font-bold mb-4">FAR AWAY Prep: PCB Panic to Prototype ⚡</h3>
+             <p className="text-muted-foreground leading-relaxed mb-6">
+               To ensure our participants arrive ready to build, we host intensive hardware and software workshops leading up to the event. Our first session covers everything from initial PCB design to final prototyping.
+             </p>
+             <div className="inline-flex items-center gap-3 px-4 py-2 bg-sakura-light/20 text-sakura-deep rounded-full text-sm font-bold border border-sakura-deep/20 mb-4">
+                <Zap size={16} /> More workshops coming soon
+             </div>
+           </div>
+           <div className="paper-card p-2 bg-gradient-to-br from-paper to-sakura-light/10 overflow-hidden w-full flex justify-center print:hidden">
+              <iframe
+                src="https://luma.com/embed/event/evt-EUFWIG5Z25SMHZT/simple"
+                width="100%"
+                height="450"
+                frameBorder="0"
+                style={{ border: "1px solid #bfcbda88", borderRadius: "8px" }}
+                allow="fullscreen; payment"
+                aria-hidden="false"
+                tabIndex={0}
+              ></iframe>
+           </div>
+           {/* Fallback for print since iframe won't render well */}
+           <div className="hidden print:block paper-card p-6 border-2 border-sakura-deep/30">
+              <h4 className="font-bold text-xl mb-2">Workshop: PCB Panic to Prototype ⚡</h4>
+              <p className="text-muted-foreground">Scan or visit Luma to register for our preparation workshops.</p>
+           </div>
+        </div>
+      </section>
+
+      <div className="torii-divider max-w-3xl mx-auto opacity-50 my-10" />
+
       {/* EVENT STRUCTURE */}
       <section className="relative mx-auto max-w-6xl px-5 md:px-8 py-10">
         <div className="grid md:grid-cols-12 gap-12">
@@ -190,98 +265,75 @@ function SponsorsPage() {
         </div>
       </section>
 
-      {/* TIERS */}
-      <section className="relative mx-auto max-w-6xl px-5 md:px-8 py-20">
+      {/* TIERS COMPARISON */}
+      <section className="relative mx-auto max-w-6xl px-5 md:px-8 py-20" style={{ pageBreakBefore: 'always' }}>
         <SectionHeader
           eyebrow="Partnership Tiers"
           title={<>Sponsor <span className="text-sakura-deep">Options</span></>}
-          subtitle="Cash and strategic in-kind partnerships accepted. Custom packages available."
+          subtitle="Cash and strategic in-kind partnerships accepted. Compare our tier features below."
         />
 
-        <div className="mt-12 grid gap-8">
-          {/* TITLE SPONSOR */}
-          <div className="paper-card relative overflow-hidden border-2 border-sakura-deep shadow-lg">
-             <div className="bg-gradient-to-r from-sakura-light/50 to-transparent p-8 md:p-10 border-b border-border">
-               <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-6">
-                 <div>
-                   <div className="text-xs font-bold uppercase tracking-[0.2em] text-sakura-deep mb-2">★ Flagship · Exclusive</div>
-                   <h3 className="font-display text-4xl md:text-5xl font-extrabold leading-none text-foreground">TITLE SPONSOR</h3>
-                 </div>
-                 <div className="text-left md:text-right">
-                   <div className="font-display text-3xl md:text-4xl font-bold">₹15–30L</div>
-                 </div>
-               </div>
-             </div>
-             <div className="grid md:grid-cols-2 p-8 md:p-10 gap-10">
-               <div>
-                  <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-foreground mb-4">Prominent Branding</h4>
-                  <ul className="space-y-3">
-                    {[
-                      <><strong className="text-foreground">"Powered by [Brand]"</strong> on all communications</>,
-                      <><strong className="text-foreground">Logo on every email</strong> to 7,100+ participants</>,
-                      <><strong className="text-foreground">Stage branding at Delhi</strong> — high-visibility placement</>,
-                      <><strong className="text-foreground">Stage branding at Japan finale</strong></>,
-                      <><strong className="text-foreground">Custom challenge track</strong> for your product</>,
-                      <><strong className="text-foreground">Recruitment access</strong> to all finalists</>,
-                    ].map((item, i) => (
-                      <li key={i} className="flex gap-3 text-muted-foreground text-sm leading-relaxed">
-                        <Target className="text-sakura-deep flex-none mt-0.5" size={16} /> {item}
-                      </li>
-                    ))}
-                  </ul>
-               </div>
-               <div>
-                  <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-foreground mb-4">Requirements</h4>
-                  <ul className="space-y-3">
-                    {[
-                      "Financial contribution toward flights, premium Japan venue, and operations",
-                      "Or strategic in-kind partnerships (travel, tech infrastructure)",
-                      "Co-marketing: joint announcement post on launch",
-                    ].map((item, i) => (
-                      <li key={i} className="flex gap-3 text-muted-foreground text-sm leading-relaxed">
-                        <span className="text-foreground/30 font-bold flex-none mt-0.5">→</span> {item}
-                      </li>
-                    ))}
-                  </ul>
-               </div>
-             </div>
+        <div className="mt-12 overflow-x-auto pb-6 print:overflow-visible">
+          <div className="min-w-[800px] print:min-w-full">
+            <table className="w-full text-left border-collapse bg-paper/50 rounded-2xl overflow-hidden shadow-sm border border-border">
+              <thead>
+                <tr>
+                  <th className="w-[34%] p-6 border-b border-border align-bottom bg-paper">
+                    <div className="text-xl font-display font-bold text-foreground">Partnership Features</div>
+                  </th>
+                  <th className="w-[22%] p-6 border-b border-border bg-gradient-to-t from-sakura-light/30 to-paper relative border-x border-border/50">
+                    <div className="absolute top-0 inset-x-0 h-1 bg-sakura-deep"></div>
+                    <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-sakura-deep mb-2">Flagship</div>
+                    <h3 className="font-display text-2xl font-extrabold text-foreground mb-1">Title</h3>
+                    <div className="text-sm font-bold text-muted-foreground">₹15–30L</div>
+                  </th>
+                  <th className="w-[22%] p-6 border-b border-border bg-paper">
+                    <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground mb-2">Core</div>
+                    <h3 className="font-display text-2xl font-extrabold text-foreground mb-1">Gold</h3>
+                    <div className="text-sm font-bold text-muted-foreground">₹5–15L</div>
+                  </th>
+                  <th className="w-[22%] p-6 border-b border-border bg-paper">
+                    <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground mb-2">Community</div>
+                    <h3 className="font-display text-2xl font-extrabold text-foreground mb-1">Community</h3>
+                    <div className="text-sm font-bold text-muted-foreground">₹50K–5L</div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-border bg-paper">
+                {[
+                  { feature: `"Powered by" Branding`, desc: "Exclusive flagship placement across all media", title: true, gold: false, comm: false },
+                  { feature: `Stage Branding (Japan Finale)`, desc: "Logo visibility at the grand finale in Tokyo", title: true, gold: false, comm: false },
+                  { feature: `Custom Challenge Track`, desc: "Dedicated prize track using your API/product", title: true, gold: "Optional", comm: false },
+                  { feature: `Stage Branding (Delhi)`, desc: "Logo visibility at the 24-hour hackathon", title: true, gold: true, comm: false },
+                  { feature: `Judge / Mentor Slot`, desc: "Direct interaction with participants", title: "2 Slots", gold: "1 Slot", comm: false },
+                  { feature: `Recruitment Access`, desc: "Access to top participant resumes & info", title: "All Finalists", gold: "Top 100", comm: false },
+                  { feature: `Dedicated Social Post`, desc: "Standalone post highlighting partnership", title: true, gold: true, comm: false },
+                  { feature: `Website & Email Logo`, desc: "Placement on sponsors section and mailers", title: "Premium", gold: "Standard", comm: "Small" },
+                  { feature: `Slack Community Access`, desc: "Interact directly with builders", title: true, gold: true, comm: true },
+                ].map((row, i) => (
+                  <tr key={i} className="hover:bg-muted/30 transition-colors group">
+                    <td className="p-6">
+                      <div className="font-bold text-foreground">{row.feature}</div>
+                      <div className="text-xs text-muted-foreground mt-1">{row.desc}</div>
+                    </td>
+                    <td className="p-6 text-center border-x border-border/50 bg-sakura-light/5 group-hover:bg-sakura-light/10 transition-colors">
+                      {typeof row.title === 'boolean' ? (row.title ? <CheckCircle2 className="mx-auto text-sakura-deep" size={20} /> : <Minus className="mx-auto text-muted-foreground/30" size={20} />) : <span className="font-bold text-sakura-deep text-sm">{row.title}</span>}
+                    </td>
+                    <td className="p-6 text-center">
+                      {typeof row.gold === 'boolean' ? (row.gold ? <CheckCircle2 className="mx-auto text-foreground" size={20} /> : <Minus className="mx-auto text-muted-foreground/30" size={20} />) : <span className="font-bold text-foreground text-sm">{row.gold}</span>}
+                    </td>
+                    <td className="p-6 text-center">
+                      {typeof row.comm === 'boolean' ? (row.comm ? <CheckCircle2 className="mx-auto text-foreground" size={20} /> : <Minus className="mx-auto text-muted-foreground/30" size={20} />) : <span className="font-bold text-foreground text-sm">{row.comm}</span>}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
+        </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="paper-card flex flex-col">
-               <div className="p-8 border-b border-border">
-                 <div className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground mb-2">Core Sponsor</div>
-                 <h3 className="font-display text-3xl font-extrabold mb-2">GOLD PARTNER</h3>
-                 <div className="font-display text-2xl font-bold">₹5–15L</div>
-               </div>
-               <div className="p-8 flex-1">
-                 <ul className="space-y-3">
-                    {["Logo on website and emails", "Stage branding at Delhi round", "Dedicated sponsor social post", "1 judge/mentor slot at Delhi", "Recruitment access to finalists"].map((item, i) => (
-                      <li key={i} className="flex gap-3 text-muted-foreground text-sm leading-relaxed">
-                        <CheckCircle2 size={16} className="text-foreground flex-none mt-0.5" /> {item}
-                      </li>
-                    ))}
-                  </ul>
-               </div>
-            </div>
-
-            <div className="paper-card flex flex-col">
-               <div className="p-8 border-b border-border">
-                 <div className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground mb-2">Community Sponsor</div>
-                 <h3 className="font-display text-3xl font-extrabold mb-2">COMMUNITY</h3>
-                 <div className="font-display text-2xl font-bold">₹50K–5L</div>
-               </div>
-               <div className="p-8 flex-1">
-                 <ul className="space-y-3">
-                    {["Logo on FAR AWAY website", "Mention in global email campaigns", "1 social media mention", "Certificate branding", "Slack community access"].map((item, i) => (
-                      <li key={i} className="flex gap-3 text-muted-foreground text-sm leading-relaxed">
-                        <CheckCircle2 size={16} className="text-foreground flex-none mt-0.5" /> {item}
-                      </li>
-                    ))}
-                  </ul>
-               </div>
-            </div>
-          </div>
+        <div className="mt-8 paper-card p-6 border-l-4 border-l-sakura-deep bg-sakura-light/10 text-sm text-muted-foreground">
+          <strong className="text-foreground">Requirements & Details:</strong> Title Sponsors are expected to provide financial contribution toward flights, premium Japan venue, and operations, or strategic in-kind partnerships. <a href="mailto:sponsors@zuup.dev" className="text-sakura-deep hover:underline">Let's build a custom package</a>.
         </div>
       </section>
 
