@@ -57,6 +57,7 @@ export function Footer() {
             <li><a href="mailto:jagrit@zuup.dev" className="hover:text-sakura-deep">jagrit@zuup.dev</a></li>
             <li><a href="mailto:sponsors@zuup.dev" className="hover:text-sakura-deep">sponsors@zuup.dev</a></li>
             <li><a href="https://zuup.dev" target="_blank" rel="noopener noreferrer" className="hover:text-sakura-deep">zuup.dev</a></li>
+            <li><a href="http://zuup.fillout.com/farawayvolunteer" target="_blank" rel="noopener noreferrer" className="hover:text-sakura-deep font-bold text-vermilion">Volunteer</a></li>
           </ul>
           <div className="mt-6 flex items-center gap-2">
             <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Platform</span>

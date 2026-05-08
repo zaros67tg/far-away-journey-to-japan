@@ -39,6 +39,14 @@ export function Header() {
 
         <div className="flex items-center gap-2">
           <a
+            href="http://zuup.fillout.com/farawayvolunteer"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full ring-1 ring-border/50 bg-paper/80 text-foreground font-semibold text-[12px] tracking-wide hover:bg-sakura-light/50 transition"
+          >
+            Volunteer
+          </a>
+          <a
             href="https://unstop.com/p/far-away-zuup-1677472"
             target="_blank"
             rel="noopener noreferrer"
