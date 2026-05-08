@@ -7,6 +7,7 @@ const links = [
   { to: "/rounds", label: "Rounds" },
   { to: "/prizes", label: "Prizes" },
   { to: "/faq", label: "FAQ" },
+  { to: "/sponsors", label: "Sponsors" },
 ] as const;
 
 export function Header() {
