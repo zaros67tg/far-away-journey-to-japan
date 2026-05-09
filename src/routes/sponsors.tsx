@@ -122,7 +122,7 @@ function SponsorsPage() {
           {/* PDF DOWNLOAD BUTTON */}
           <a
             id="pdf-download-btn"
-            href="/Sponsorship Pitch Deck.pdf"
+            href="/Sponsorship%20Pitch%20Deck.pdf"
             download="FAR AWAY 2026 — Sponsorship Pitch Deck.pdf"
             className="ml-auto flex items-center gap-2 px-5 py-2 rounded-full bg-foreground text-paper text-sm font-bold hover:bg-sakura-deep transition shadow-md hover:shadow-[var(--shadow-bloom)] hover:scale-105"
           >
