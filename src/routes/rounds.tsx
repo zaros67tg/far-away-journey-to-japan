@@ -176,7 +176,7 @@ function RoundsPage() {
               Get real-time updates, announcements, connect with other builders, and get support directly from the organising team. This is where things happen.
             </p>
             <a
-              href="https://join.slack.com/t/farawayofficial/shared_invite/zt-38zrml7b0-9cZqxwIoI9JpAi1O3FDPZQ"
+              href="https://join.slack.com/t/zuupgroup/shared_invite/zt-3x4ni7dch-pZrIMWrngGrv_3I6nlkGdQ"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-foreground text-paper text-sm font-semibold hover:bg-sakura-deep hover:scale-105 transition shadow-[var(--shadow-bloom)]"

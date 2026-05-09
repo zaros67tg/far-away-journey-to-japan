@@ -363,7 +363,7 @@ function HomePage() {
               </p>
             </div>
             <a
-              href="https://join.slack.com/t/farawayofficial/shared_invite/zt-38zrml7b0-9cZqxwIoI9JpAi1O3FDPZQ"
+              href="https://join.slack.com/t/zuupgroup/shared_invite/zt-3x4ni7dch-pZrIMWrngGrv_3I6nlkGdQ"
               target="_blank"
               rel="noopener noreferrer"
               className="flex-none inline-flex items-center gap-2 px-6 py-3 rounded-full bg-paper text-foreground font-bold text-sm hover:bg-sakura-light hover:scale-105 transition shadow-lg"
