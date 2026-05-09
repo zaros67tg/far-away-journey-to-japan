@@ -208,7 +208,7 @@ function HomePage() {
       <section className="mx-auto max-w-5xl px-5 md:px-8 py-24 md:py-32 text-center">
         <p className="display-script text-2xl md:text-3xl text-foreground/80 leading-relaxed">
           FAR AWAY is India's biggest international youth hackathon for 2026, organized by{" "}
-          <strong className="not-italic text-sakura-deep">Zuup</strong> (a Zylon Labs initiative).
+          <strong className="not-italic text-sakura-deep">Zuup</strong>.
           Open to students and young creators aged 15–25. The top 5 teams win a fully sponsored trip to Japan.
           Registration is <strong className="not-italic text-vermilion">always free</strong> — no hidden fees, ever.
         </p>
@@ -226,7 +226,7 @@ function HomePage() {
               </h2>
               <p className="mt-6 text-base md:text-lg text-foreground/80 leading-relaxed">
                 FAR AWAY is an international hackathon for youth aged 15–25, organized by{" "}
-                <strong>Zuup</strong>, a teen-led NPO by Zylon Labs.
+                <strong>Zuup</strong>.
               </p>
               <p className="mt-4 text-muted-foreground leading-relaxed">
                 It is not just a hackathon. It's a journey from your home screen to a fully-sponsored
@@ -341,7 +341,7 @@ function HomePage() {
             <div className="text-xs uppercase tracking-[0.22em] text-muted-foreground mb-4">Organized by</div>
             <img src={zuupLogo} alt="Zuup logo" width={96} height={96} className="h-24 w-24 mx-auto rounded-2xl ring-1 ring-border" />
             <div className="font-display text-3xl font-extrabold mt-4">Zuup</div>
-            <div className="text-sm text-muted-foreground">A Zylon Labs Initiative</div>
+            <div className="text-sm text-muted-foreground">Building the future of youth tech events</div>
           </div>
           <div className="paper-card p-8 text-center">
             <div className="text-xs uppercase tracking-[0.22em] text-muted-foreground mb-4">Platform Partner</div>
@@ -353,14 +353,27 @@ function HomePage() {
           </div>
         </div>
 
-        <div className="mt-10 paper-card p-8 max-w-3xl mx-auto text-center bg-gradient-to-br from-sakura-light to-paper">
-          <h3 className="font-display text-2xl font-bold">Want to Sponsor FAR AWAY?</h3>
-          <p className="mt-2 text-muted-foreground">
-            Reach thousands of young tech builders across India. Get your brand in front of the next generation.
-          </p>
-          <a href="mailto:sponsors@zuup.dev" className="mt-5 inline-block text-sakura-deep font-semibold text-lg hover:underline">
-            sponsors@zuup.dev
-          </a>
+        <div className="mt-10 paper-card p-8 max-w-3xl mx-auto bg-gradient-to-br from-foreground to-foreground/90 text-paper">
+          <div className="flex flex-col md:flex-row items-center gap-6">
+            <div className="flex-1">
+              <div className="text-xs uppercase tracking-widest text-paper/50 mb-1">💬 Community</div>
+              <h3 className="font-display text-2xl font-bold">Join us on Slack</h3>
+              <p className="mt-2 text-paper/70 text-sm">
+                Real-time updates, team-finding, and direct access to organisers. 400+ builders already inside.
+              </p>
+            </div>
+            <a
+              href="https://join.slack.com/t/farawayofficial/shared_invite/zt-38zrml7b0-9cZqxwIoI9JpAi1O3FDPZQ"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-none inline-flex items-center gap-2 px-6 py-3 rounded-full bg-paper text-foreground font-bold text-sm hover:bg-sakura-light hover:scale-105 transition shadow-lg"
+            >
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden>
+                <path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/>
+              </svg>
+              Join Slack →
+            </a>
+          </div>
         </div>
       </section>
 

@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WorkshopsRouteImport } from './routes/workshops'
 import { Route as SponsorsRouteImport } from './routes/sponsors'
 import { Route as RoundsRouteImport } from './routes/rounds'
 import { Route as PrizesRouteImport } from './routes/prizes'
@@ -16,6 +17,11 @@ import { Route as FaqRouteImport } from './routes/faq'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
+const WorkshopsRoute = WorkshopsRouteImport.update({
+  id: '/workshops',
+  path: '/workshops',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SponsorsRoute = SponsorsRouteImport.update({
   id: '/sponsors',
   path: '/sponsors',
@@ -54,6 +60,7 @@ export interface FileRoutesByFullPath {
   '/prizes': typeof PrizesRoute
   '/rounds': typeof RoundsRoute
   '/sponsors': typeof SponsorsRoute
+  '/workshops': typeof WorkshopsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -62,6 +69,7 @@ export interface FileRoutesByTo {
   '/prizes': typeof PrizesRoute
   '/rounds': typeof RoundsRoute
   '/sponsors': typeof SponsorsRoute
+  '/workshops': typeof WorkshopsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -71,13 +79,36 @@ export interface FileRoutesById {
   '/prizes': typeof PrizesRoute
   '/rounds': typeof RoundsRoute
   '/sponsors': typeof SponsorsRoute
+  '/workshops': typeof WorkshopsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/faq' | '/prizes' | '/rounds' | '/sponsors'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/faq'
+    | '/prizes'
+    | '/rounds'
+    | '/sponsors'
+    | '/workshops'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/faq' | '/prizes' | '/rounds' | '/sponsors'
-  id: '__root__' | '/' | '/about' | '/faq' | '/prizes' | '/rounds' | '/sponsors'
+  to:
+    | '/'
+    | '/about'
+    | '/faq'
+    | '/prizes'
+    | '/rounds'
+    | '/sponsors'
+    | '/workshops'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/faq'
+    | '/prizes'
+    | '/rounds'
+    | '/sponsors'
+    | '/workshops'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -87,10 +118,18 @@ export interface RootRouteChildren {
   PrizesRoute: typeof PrizesRoute
   RoundsRoute: typeof RoundsRoute
   SponsorsRoute: typeof SponsorsRoute
+  WorkshopsRoute: typeof WorkshopsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/workshops': {
+      id: '/workshops'
+      path: '/workshops'
+      fullPath: '/workshops'
+      preLoaderRoute: typeof WorkshopsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sponsors': {
       id: '/sponsors'
       path: '/sponsors'
@@ -143,6 +182,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrizesRoute: PrizesRoute,
   RoundsRoute: RoundsRoute,
   SponsorsRoute: SponsorsRoute,
+  WorkshopsRoute: WorkshopsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

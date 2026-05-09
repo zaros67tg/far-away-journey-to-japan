@@ -65,28 +65,35 @@ const rounds = [
     img: coder,
     num: "01",
     title: "International Online Round",
-    where: "From Your Home",
+    where: "From Anywhere",
+    emoji: "🌐",
     date: "First Week of June 2026",
     note: "Registration LIVE",
-    body: "Build and submit your project online. The hackathon begins in the first week of June and is open to participants across India. No commute needed. All you need is a laptop and an idea.",
+    body: "Build and submit. All registered participants. 7 days.",
+    bg: null,
   },
   {
     img: delhi,
     num: "02",
     title: "Round 2 — Delhi",
     where: "New Delhi, India",
+    emoji: "🇮🇳",
     date: "Mid June 2026",
     note: "Travel details TBA",
-    body: "Top teams come to New Delhi for an in-person hackathon. Real energy, real competition, real food, real friends. Travel stipend details will be announced soon.",
+    body: "Top 100 teams. In-person 24-hour hackathon. Selected travel assistance may be provided based on sponsorship availability.",
+    bg: null,
   },
   {
     img: tokyo,
     num: "03",
     title: "Grand Finale — Japan",
-    where: "Tokyo, Japan",
+    where: "Grand Finale",
+    emoji: "🇯🇵",
     date: "Late June / July 2026",
     note: "Top 5 — Fully Sponsored",
-    body: "The top 5 teams fly to Japan for the grand finale. Fully sponsored — flights, hotel, meals. Visa support details to be confirmed. Compete on an international stage and experience Japan.",
+    body: "Top 5 teams. 5 days in Japan. Factory visits, cultural exploration, final build day. *University and venue partnerships currently in discussion.*",
+    bg: tokyo,
+    supreme: true,
   },
 ];
 
@@ -106,13 +113,24 @@ function RoundsPage() {
       <section className="relative mx-auto max-w-7xl px-5 md:px-8 py-12">
         <div className="space-y-12">
           {rounds.map((r, i) => (
-            <article key={r.num} className={`paper-card overflow-hidden grid md:grid-cols-2 ${i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""}`}>
-              <div className="relative h-72 md:h-auto bg-gradient-to-br from-sakura-light to-sakura/20 overflow-hidden">
-                <img src={r.img} alt={r.title} loading="lazy" width={1024} height={1024} className="absolute inset-0 m-auto h-full w-full object-contain p-6" />
-                <div className="absolute top-5 left-5 font-display text-7xl font-extrabold text-vermilion/90 leading-none">{r.num}</div>
+            <article key={r.num} className={`paper-card overflow-hidden grid md:grid-cols-2 ${i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""} ${r.supreme ? 'border-sakura-deep/40' : ''}`}>
+              <div className={`relative h-72 md:h-auto overflow-hidden ${r.bg ? '' : 'bg-gradient-to-br from-sakura-light to-sakura/20'}`}>
+                {r.bg && (
+                  <img src={r.bg} alt="" aria-hidden loading="lazy" width={1024} height={768} className="absolute inset-0 w-full h-full object-cover" />
+                )}
+                {r.bg && <div className="absolute inset-0 bg-gradient-to-br from-foreground/70 via-foreground/30 to-sakura-deep/40" />}
+                <img src={r.img} alt={r.title} loading="lazy" width={1024} height={1024} className={`absolute inset-0 m-auto h-full w-full object-contain p-6 ${r.bg ? 'opacity-90 mix-blend-luminosity' : ''}`} />
+                <div className={`absolute top-5 left-5 font-display text-7xl font-extrabold leading-none ${r.supreme ? 'text-sakura-deep drop-shadow-lg' : 'text-vermilion/90'}`}>{r.num}</div>
+                {r.supreme && (
+                  <div className="absolute bottom-5 left-5 right-5">
+                    <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-sakura-deep/90 text-paper text-xs font-bold backdrop-blur-sm">
+                      {r.emoji} {r.where}
+                    </span>
+                  </div>
+                )}
               </div>
-              <div className="p-8 md:p-12 flex flex-col justify-center">
-                <div className="text-xs uppercase tracking-[0.22em] text-vermilion font-semibold">{r.where}</div>
+              <div className={`p-8 md:p-12 flex flex-col justify-center ${r.supreme ? 'bg-gradient-to-br from-sakura-light/20 to-paper' : ''}`}>
+                <div className="text-xs uppercase tracking-[0.22em] text-vermilion font-semibold">{r.emoji} {r.where}</div>
                 <h2 className="display-mega text-3xl md:text-4xl mt-2">{r.title}</h2>
                 <p className="mt-4 text-muted-foreground leading-relaxed">{r.body}</p>
                 <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -125,13 +143,61 @@ function RoundsPage() {
         </div>
       </section>
 
-      <section className="relative mx-auto max-w-5xl px-5 md:px-8 py-20">
+      {/* WORKSHOPS + COMMUNITY */}
+      <section className="relative mx-auto max-w-5xl px-5 md:px-8 py-16">
+        <div className="grid md:grid-cols-2 gap-6">
+          {/* Workshops card */}
+          <div className="paper-card p-8 bg-gradient-to-br from-sakura-light/30 to-paper border-sakura-deep/20">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sakura-deep/10 text-sakura-deep text-[10px] font-bold uppercase tracking-widest mb-4">
+              ⚡ Prep Workshops
+            </div>
+            <h3 className="font-display text-2xl font-bold mb-3">FAR AWAY Prep: PCB Panic to Prototype</h3>
+            <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+              We host intensive hardware and software workshops before the hackathon. Join our first session covering PCB design, AI prototyping, and more. Free for all registered participants.
+            </p>
+            <a
+              href="https://lu.ma/faraway"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-sakura-deep text-paper text-sm font-semibold hover:scale-105 transition shadow-[var(--shadow-bloom)]"
+            >
+              Register for Workshop →
+            </a>
+            <p className="mt-3 text-[10px] text-muted-foreground">More workshops coming soon</p>
+          </div>
+
+          {/* Slack card */}
+          <div className="paper-card p-8 bg-gradient-to-br from-foreground/5 to-paper border-foreground/10">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-foreground/10 text-foreground text-[10px] font-bold uppercase tracking-widest mb-4">
+              💬 Real-Time Updates
+            </div>
+            <h3 className="font-display text-2xl font-bold mb-3">Join the FAR AWAY Community on Slack</h3>
+            <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+              Get real-time updates, announcements, connect with other builders, and get support directly from the organising team. This is where things happen.
+            </p>
+            <a
+              href="https://join.slack.com/t/farawayofficial/shared_invite/zt-38zrml7b0-9cZqxwIoI9JpAi1O3FDPZQ"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-foreground text-paper text-sm font-semibold hover:bg-sakura-deep hover:scale-105 transition shadow-[var(--shadow-bloom)]"
+            >
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden>
+                <path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/>
+              </svg>
+              Join Slack Community →
+            </a>
+            <p className="mt-3 text-[10px] text-muted-foreground">400+ members · Real-time round updates</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative mx-auto max-w-5xl px-5 md:px-8 py-10">
         <div className="paper-card p-8 md:p-12 text-center bg-gradient-to-br from-sakura-light via-paper to-sakura/15">
           <img src={torii} alt="" aria-hidden width={1024} height={1024} className="h-32 mx-auto opacity-90" />
           <h2 className="display-mega text-3xl md:text-5xl mt-4">Top 5 teams fly to Japan.</h2>
           <p className="mt-3 text-muted-foreground">All expenses covered — flights, hotel, meals.</p>
           <a
-            href="https://unstop.com"
+            href="https://unstop.com/p/far-away-zuup-1677472"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-6 inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-sakura-deep to-vermilion text-primary-foreground font-semibold shadow-[var(--shadow-bloom)] hover:scale-105 transition"
