@@ -3,6 +3,7 @@ import { SectionHeader } from "@/components/Section";
 import zuupLogo from "@/assets/zuup-logo.webp";
 import unstopLogo from "@/assets/unstop-logo-white.webp";
 import branch from "@/assets/branch.webp";
+import pitchDeckPdf from "@/assets/Sponsorship Pitch Deck.pdf";
 import {
   Globe,
   Cpu,
@@ -122,7 +123,7 @@ function SponsorsPage() {
           {/* PDF DOWNLOAD BUTTON */}
           <a
             id="pdf-download-btn"
-            href="/Sponsorship%20Pitch%20Deck.pdf"
+            href={pitchDeckPdf}
             download="FAR AWAY 2026 — Sponsorship Pitch Deck.pdf"
             className="ml-auto flex items-center gap-2 px-5 py-2 rounded-full bg-foreground text-paper text-sm font-bold hover:bg-sakura-deep transition shadow-md hover:shadow-[var(--shadow-bloom)] hover:scale-105"
           >
