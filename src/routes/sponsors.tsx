@@ -34,9 +34,6 @@ export const Route = createFileRoute("/sponsors")({
 });
 
 function SponsorsPage() {
-  const handlePrint = () => {
-    window.print();
-  };
 
   return (
     <div className="relative print:bg-white print:text-black">
@@ -123,15 +120,15 @@ function SponsorsPage() {
           </span>
 
           {/* PDF DOWNLOAD BUTTON */}
-          <button
+          <a
             id="pdf-download-btn"
-            type="button"
-            onClick={handlePrint}
+            href="/Sponsorship Pitch Deck.pdf"
+            download="FAR AWAY 2026 — Sponsorship Pitch Deck.pdf"
             className="ml-auto flex items-center gap-2 px-5 py-2 rounded-full bg-foreground text-paper text-sm font-bold hover:bg-sakura-deep transition shadow-md hover:shadow-[var(--shadow-bloom)] hover:scale-105"
           >
             <Download size={15} />
-            Download as PDF
-          </button>
+            Download Pitch Deck
+          </a>
         </div>
 
         <h1 className="display-mega text-[14vw] md:text-[8rem] lg:text-[10rem] text-foreground leading-[0.85] animate-ink">
